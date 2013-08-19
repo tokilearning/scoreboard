@@ -1,4 +1,4 @@
 scoreboard
 ==========
 
-Scoreboard for TOKI Learning Center
+Public Scoreboard for OSN 2013
