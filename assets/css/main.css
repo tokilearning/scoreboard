@@ -18,37 +18,14 @@ header{
 	z-index: 90;
 }
 
-table{
-	width: 100%;
-	color: #FFF;
-	border-spacing: 5px;
-}
-
-th{
-	height: 40px;
-	background-color: #000;
-}
-
-tbody tr:hover td, tbody tr:hover td a{
-	color: #FFF;
-	background-color: #BBB;
-}
-
-td{
-	height:30px;
-	color: #000;
-	background-color: #FFF;
-	text-align: center;
-}
-
-td a{
+a{
 	text-decoration: none;
 	color: #000;
 }
 
 footer{
 	width: 100%;
-	padding: 10px 0;
+	padding: 18px 0;
 	color: #FFF;
 	background-color: #666;
     /*box-shadow:0 -2px 5px 0 #000;*/
@@ -56,6 +33,37 @@ footer{
 	bottom: 0;
 	text-align: center;
 	vertical-align: middle;
+}
+
+#rank table{
+	width: 100%;
+	color: #FFF;
+	border-spacing: 5px;
+}
+
+#rank th{
+	height: 40px;
+	background-color: #000;
+}
+
+#rank tbody tr:hover td, #rank tbody tr:hover a{
+	color: #FFF;
+	background-color: #BBB;
+}
+
+#rank tbody tr:hover td .mark-active{
+	content: "";
+	width: 18px;
+	height: 18px;
+	margin: 5px 1px 0 0;
+	background: url(../images/glyphicons-halflings-white.png) 184px 0px;
+}
+
+#rank td{
+	height:30px;
+	color: #000;
+	background-color: #FFF;
+	text-align: center;
 }
 
 #logo{
@@ -198,7 +206,7 @@ footer{
 	width: 18px;
 	height: 18px;
 	float: left;
-	background: url(glyphicons-halflings-white.png) 182px 39px;
+	background: url(../images/glyphicons-halflings-white.png) 184px 39px;
 }
 
 .tracker-item-down{	background-color: #F03;	}
@@ -208,7 +216,7 @@ footer{
 	width: 18px;
 	height: 18px;
 	float: left;
-	background: url(glyphicons-halflings-white.png) 158px 39px;
+	background: url(../images/glyphicons-halflings-white.png) 158px 39px;
 }
 
 .tracker-item-rank{
@@ -218,6 +226,11 @@ footer{
 }
 
 .tracker-item-rank:after{	content:".";	}
+
+.tracker-item-name a{
+	margin-left: 2px;
+	color: #FFF;
+}
 
 .tracker-item-status{
 	width: 35px;
@@ -239,15 +252,49 @@ footer{
 	float: right;
 }
 
-.c0{	width: 50px;	}
+.c0{	width: 20px;	}
 
-.c1{	width: 45px;	}
+.c1{	width: 35px;	}
 
 .c2{	width: 300px;	}
 
 .c3{	width: 200px;	}
 
 /* .c4, .c5, .c6, .c7, .c8, .c9, .c10, .c11, .c12, .c13, .c14 {	width: 35px;	} */
+
+.icon-target-white{
+	content: "";
+	width: 18px;
+	height: 18px;
+	margin: 5px 1px 0 0;
+	float: left;
+	background: url(../images/glyphicons-halflings-white.png) -141px 63px;
+}
+
+.mark{
+	width: 18px;
+	height: 18px;
+	margin: 5px auto 0;
+	display: block;
+}
+
+.mark:hover{
+	content: "";
+	width: 18px;
+	height: 18px;
+	margin: 5px 1px 0 0;
+	background: url(../images/glyphicons-halflings.png) 184px 0px;
+	opacity: 0.4;
+	filter: alpha(opacity=40); /* For IE8 and earlier */
+}
+
+.mark-active{
+	content: "";
+	width: 18px;
+	height: 18px;
+	margin: 5px 1px 0 0;
+	background: url(../images/glyphicons-halflings.png) 184px 0px;
+}
 
 .contestant-picture{
 	width: 220px;
