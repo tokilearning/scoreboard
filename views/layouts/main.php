@@ -5,17 +5,18 @@ $contest_id = 10;
 <!DOCTYPE html>
 <html>
 	<head>
-	<link rel="stylesheet" type="text/css" href="main.css">
-	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="drawchart.js"></script>
-	<script type="text/javascript" src="contest.js"></script>
-	<script type="text/javascript" src="rank.js"></script>
+        <?php Yii::app()->controller->module->registerCssFile('main.css'); ?>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <?php Yii::app()->controller->module->registerScriptFile('drawchart.js'); ?>
+        <?php Yii::app()->controller->module->registerScriptFile('contest.js'); ?>
+        <?php Yii::app()->controller->module->registerScriptFile('rank.js'); ?>
+        <?php Yii::app()->controller->module->registerScriptFile('tracker.js'); ?>
 	</head>
 	<body>
 		<script type="text/javascript">
-			var contest;
 			
+			var contest;
 			$(window).resize(function(){
 				$('#main').height($(window).height() - $('header').outerHeight() - $('footer').outerHeight());
 			});
@@ -23,12 +24,11 @@ $contest_id = 10;
 			$(document).ready(function(){
 				$('#main').height($(window).height() - $('header').outerHeight() - $('footer').outerHeight());
 
-				contest = Contest;
-				contest.init('#time',<?php echo $contest_id; ?>);
-				var tracked = new Array();
-				var rank = Rank;
-				rank.fixture('#rank');
-				
+				Contest.init('#time',<?php echo $contest_id; ?>);
+				Rank.init('#rank');
+				Rank.fixture();
+				Tracker.init('#tracker');
+
 //				setInterval(function(){
 //					$('table').html('');
 //					$('#tracker-list').html('');
@@ -36,7 +36,11 @@ $contest_id = 10;
 			});
 		</script>
 		<header>
-			<img id="logo" src="logo.jpg">
+			<?php
+			echo CHtml::image(Yii::app()->controller->module->getImage('logo.jpg'), '', array(
+				'id' => 'logo',
+			));
+			?>
 			<span id="title">Olimpiade Sains Nasional 2013 - Komputer</span>
 			<span id="time"></span>
 		</header>
@@ -109,7 +113,11 @@ $contest_id = 10;
 						<div class="contestant-data">Asal Peserta</div>
 						<div id="table-chart"></div>
 					</div>
-					<img class="contestant-picture" src="default_propic.jpg">
+					<?php
+					echo CHtml::image(Yii::app()->controller->module->getImage('default_propic.jpg'), '', array(
+						'class' => 'contestant-picture',
+					));
+					?>
 					<div id="score-chart"></div>
 					<div id="failed-chart"></div>
 				</div>
